@@ -1,3 +1,4 @@
+import '../src/styles/index.scss';
 import type { Preview } from '@storybook/react-vite';
 import { themes } from 'storybook/internal/theming';
 
