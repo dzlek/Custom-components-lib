@@ -24,15 +24,17 @@ describe('Checkbox', () => {
     expect(checkbox).toBeChecked();
   });
 
-  it('respects defaultChecked prop in uncontrolled mode', () => {
-    render(<Checkbox label="Checked" defaultChecked />);
-    expect(screen.getByRole('checkbox')).toBeChecked();
+  it('respects isChecked prop in controlled mode', () => {
+    const handleChange = jest.fn();
+    render(<Checkbox label="Checked" isChecked onChange={handleChange} />);
+    const checkbox = screen.getByRole('checkbox');
+    expect(checkbox).toBeChecked();
   });
 
-  it('respects checked prop in controlled mode', () => {
-    const handleChange = jest.fn();
-    render(<Checkbox label="Checked" checked onChange={handleChange} />);
-    expect(screen.getByRole('checkbox')).toBeChecked();
+  it('respects initial isChecked in uncontrolled mode', () => {
+    render(<Checkbox label="Unchecked" isChecked={false} />);
+    const checkbox = screen.getByRole('checkbox');
+    expect(checkbox).not.toBeChecked();
   });
 
   it('disabled', async () => {
