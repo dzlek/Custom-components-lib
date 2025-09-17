@@ -23,6 +23,10 @@ export const Checked: Story = {
   args: { label: 'Checked', defaultChecked: true },
 };
 
+export const Controlled: Story = {
+  args: { label: 'Controlled', checked: true, onChange: () => {} },
+};
+
 export const Disabled: Story = {
   args: { label: 'Disabled', disabled: true },
 };
